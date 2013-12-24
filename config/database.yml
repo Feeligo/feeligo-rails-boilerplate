@@ -1,0 +1,34 @@
+<%
+# read DB config from DATABASE_URL and DATABASE_TEST_URL
+# inspired from https://github.com/heroku/heroku-buildpack-ruby/blob/v34/lib/language_pack/ruby.rb#L440-503
+require 'uri'
+require 'yaml'
+config = []
+
+if ENV['RAKE_ENV'] == 'test' || ENV['RAILS_ENV'] == 'test'
+  ENV['DATABASE_URL'] = ENV['DATABASE_TEST_URL']
+end
+
+
+{development: 'DATABASE_URL', test: 'DATABASE_TEST_URL'}.each_pair do |env, key|
+  begin
+    uri = URI.parse(ENV[key])
+  rescue URI::InvalidURIError
+    raise "Invalid #{key}: '#{ENV[key]}'"
+  end
+
+  config << {
+    env.to_s => {
+      adapter: 'postgresql',
+      database: (uri.path || "").split("/")[1],
+      username: uri.user,
+      password: uri.password,
+      host: uri.host,
+      port: uri.port, 
+    }.reject{|k,v| v.nil?}.stringify_keys
+  }
+end %>
+
+<% config.each do |cfg| %>
+<%= cfg.to_yaml.split("---\n").last %>
+<% end %>
