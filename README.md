@@ -25,7 +25,11 @@
   1. find `FeeligoRailsBoilerplate` in all files and change to your own
   application's name
 
-  3. create a file named `.env` at the project root, and enter your config
+  1. replace the tokens in `config/initializers/devise.rb` and
+  `config/initializers/secret_token.rb` with your own random tokens. You can
+  generate them with `SecureRandom.hex(64)`
+
+  1. create a file named `.env` at the project root, and enter your config
   variables as explained below
 
 
@@ -41,8 +45,6 @@ The following settings are required:
       # the hostname on which the app is running
     DEFAULT_EMAIL_ADDRESS=support@feeligo.com
       # the default email address from which email is sent
-    DEVISE_SECRET_KEY
-      # secret key for Devise. You can generate one with `SecureRandom.hex(64)`
     DATABASE_URL=postgres://localhost/myapp_dev
       # url of the Postgres database for development
     DATABASE_TEST_URL=postgres://localhost/myapp_test

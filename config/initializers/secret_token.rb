@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FeeligoRailsBoilerplate::Application.config.secret_key_base = 'ae1f7a275279d3383658021c79da95fd40d256d018a892da15f4c691c9172502786bcbbb330a029faac57bb908f632121471909ab85c62d8faa2d56b09a8e683'
+FeeligoRailsBoilerplate::Application.config.secret_key_base = '22d5d55f680e446893f13b7795afeacd1639fb87f88cbca974043ea757997adab33c7d9b26791ca09a24a86cc563be056fa33f4bb9376adc700edaa5d6041aa2'
