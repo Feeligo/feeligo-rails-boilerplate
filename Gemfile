@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+# Rails
+gem 'rails', '4.1.0'
 
 # Postgres
 gem 'pg', '>= 0.17.0'
@@ -48,10 +49,10 @@ gem 'haml-rails'
 # gem 'capistrano', group: :development
 
 # Devise - authentication based on Warden
-gem 'devise', "~> 3.2.0"
+gem 'devise', "~> 3.3.0"
 
 # Bootstrap - mobile first front-end framework
-gem 'bootstrap-sass', '~> 3.0.0.0.rc'
+gem 'bootstrap-sass', '~> 3.2.0'
 
 # Rack contrib for Rack::JSONP
 gem 'rack-contrib'
@@ -77,7 +78,7 @@ gem 'test_after_commit', group: :test # never in :development !
 
 # RSpec tests
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec-rails', '~> 3.0.2'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
